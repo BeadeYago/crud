@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="/src/main/resources/static/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+<body>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody class="tableData">
+        </tbody>
+    </table>
+
+
+    <a class="exportToVcard">
+        <div class="exportToVcardIcon">
+          <svg class="bi" width="26" height="26" fill="white">
+            <use xlink:href="/src/main/resources/static/bootstrap-icons-1.8.1/bootstrap-icons.svg#sd-card-fill"/>
+          </svg>
+        </div>
+      </a>
+
+    <a class="addPerson" data-bs-toggle="modal" data-bs-target="#addUser">
+        <div class="iconAddPerson">
+          <svg class="bi" width="26" height="26" fill="white">
+            <use xlink:href="/src/main/resources/static/bootstrap-icons-1.8.1/bootstrap-icons.svg#person-plus-fill"/>
+          </svg>
+        </div>
+      </a>
+
+
+  <!-- Create User Modal -->
+  <div class="modal fade" id="addUser" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light">
+          <form id="createForm">
+            <div class="mb-3">
+              <label for="createNameInput" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="createName" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="createLastNameInput" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="createLastName" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="createNumberInput" class="form-label">Numero de telefono</label>
+              <input type="text" class="form-control" id="createPhone" placeholder="">
+            </div>
+
+            <div class="mb-3">
+              <label for="createEmailInput" class="form-label">Email</label>
+              <input type="email" class="form-control" id="createEmail" placeholder="name@example.com">
+            </div>
+            <div class="container mb-3">
+            </div>
+            <div class="container mb-3">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id="btnCreate">Crear</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light">
+          <form id="editForm">
+            <div class="mb-3">
+              <label for="editNameInput" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="editName" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="editLastNameInput" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="editLastName" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="editNumberInput" class="form-label">Numero de telefono</label>
+              <input type="text" class="form-control" id="editPhone" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="editEmailInput" class="form-label">Email</label>
+              <input type="email" class="form-control" id="editEmail" placeholder="name@example.com">
+            </div>
+            <div class="container mb-3">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary" id="btnEdit" onclick="editPerson()">Editar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/src/main/resources/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.addPerson{
+    width: 3.5rem;
+    height: 3.5rem;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 50%;
+    background-color: #060716;
+}
+
+.iconAddPerson{
+    position: absolute;
+    top:0.9rem;
+    left: 0.9rem;
+}
+
+.exportToVcard{
+    width: 3.5rem;
+    height: 3.5rem;
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    border-radius: 50%;
+    background-color: #060716;
+}
+
+.exportToVcardIcon{
+    position: absolute;
+    top:0.9rem;
+    left: 0.9rem;
+}

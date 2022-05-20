@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RestController
 @RequestMapping("/api")
 public class PersonController {
@@ -18,18 +20,23 @@ public class PersonController {
     private PersonService service;
 
     @GetMapping("/persons")
-    public ResponseEntity<?> findById(){
+    public ResponseEntity<?> findByAll(){
         List<Person> list = service.findAll();
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("/persons/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
+    }
+
     @PostMapping("/persons")
-    public ResponseEntity<?> save(@RequestBody Person person){
+    public ResponseEntity<?> save(@Valid @RequestBody Person person){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(person));
     }
 
     @PutMapping("/persons/{id}")
-    public ResponseEntity<?> update(@RequestBody Person person,@PathVariable Long id){
+    public ResponseEntity<?> update(@Valid @RequestBody Person person,@PathVariable Long id){
         final Person personToUpdate = service.findById(id);
 
         if(personToUpdate == null){
